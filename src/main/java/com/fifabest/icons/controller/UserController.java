@@ -33,6 +33,11 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/register")
+    public String showRegisterPage() {
+        return "register";
+    }
+
     @PostMapping("/login")
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
