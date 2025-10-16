@@ -71,8 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
             setMessage('Enter a valid username before registering.', 'error');
             return;
         }
-        setMessage(`Ready to register "${v.value}". (Hook this up to /register next.)`, 'success');
-        // later: POST /register or navigate to a registration page
-        // window.location.href = `/register?username=${encodeURIComponent(v.value)}`;
+
+        // Optional: brief message before redirect
+        setMessage(`Redirecting to registration page...`, 'info');
+
+        // Safely redirect with the username as a query param
+        const encodedUsername = encodeURIComponent(v.value.trim());
+        window.location.href = `/register?username=${encodedUsername}`;
     });
 });
